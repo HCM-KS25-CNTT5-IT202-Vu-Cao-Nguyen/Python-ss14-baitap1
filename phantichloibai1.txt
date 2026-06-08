@@ -1,0 +1,76 @@
+Hàm được định nghĩa:
+
+def calculate_final_price(price, discount, shipping_fee):
+Thứ tự tham số là:
+price
+discount
+shipping_fee
+Nhưng lại gọi:
+calculate_final_price(100000, 15000, 0.1)
+
+price = 100000
+discount = 15000
+shipping_fee = 0.1
+
+
+
+Công thức:
+total = price - (price * discount) + shipping_fee
+Thay giá trị vào:
+total = 100000 - (100000 * 15000) + 0.1
+Tính toán:
+100000 * 15000
+= 1,500,000,000
+Do đó:
+total = 100000 - 1500000000 + 0.1
+      = -1499900000 + 0.1
+      = -1499899999.9
+
+
+
+Dòng lỗi:
+final_payment = order_total + 5000
+Lỗi:
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+Nghĩa là Python đang cố cộng:
+None + 5000
+
+
+Biến order_total đang mang giá trị gì?
+Biến:
+order_total = calculate_final_price(...)
+Nhưng hàm:
+def calculate_final_price(...):
+    total = ...
+    print(...)
+không có:
+return total
+Trong Python, nếu hàm không có return thì mặc định:
+return None
+Vì vậy:
+order_total = None
+
+
+
+print(total)
+Chỉ hiển thị dữ liệu ra màn hình.
+Không trả kết quả về nơi gọi hàm.
+
+
+return total
+Trả giá trị về nơi gọi hàm.
+Có thể lưu vào biến và tiếp tục xử lý.
+
+
+Cần sửa hàm như thế nào?
+Thêm lệnh:
+return total
+vào cuối hàm.
+def calculate_final_price(price, discount, shipping_fee):
+    total = price - (price * discount) + shipping_fee
+    return total
+Khi đó:
+order_total = calculate_final_price(...)
+sẽ nhận được kết quả tính toán thay vì None.
+
+
